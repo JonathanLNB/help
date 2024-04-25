@@ -1,23 +1,28 @@
 package com.example.tarea1;
 
 public class Transmision {
-    private String nombre;
-    private int id;
-    public Transmision(int id, String nombre ) {
-        this.id=id;
-        this.nombre = nombre;
+    private String transmision;
+    private int idTransmision;
+
+    public Transmision(int idTransmision, String transmision) {
+        this.idTransmision = idTransmision;
+        this.transmision = transmision;
     }
-    public int getId() {
-        return id;
+
+    public int getIdTransmision() {
+        return idTransmision;
     }
-    public void setId(int id) {
-        this.id = id;
+
+    public void setIdTransmision(int idTransmision) {
+        this.idTransmision = idTransmision;
     }
-    public String getNombre() {
-        return nombre;
+
+    public String getTransmision() {
+        return transmision;
     }
+
     @Override
     public String toString() {
-        return nombre;
+        return transmision;
     }
 }

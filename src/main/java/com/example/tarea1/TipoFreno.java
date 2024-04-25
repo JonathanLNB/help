@@ -1,23 +1,28 @@
 package com.example.tarea1;
 
 public class TipoFreno {
-    private String freno;
-    private int idFreno;
-    public TipoFreno(int idFreno, String freno ) {
-        this.idFreno=idFreno;
-        this.freno = freno;
+    private String tipoFreno;
+    private int idTipoFreno;
+
+    public TipoFreno(int idTipoFreno, String tipoFreno) {
+        this.idTipoFreno = idTipoFreno;
+        this.tipoFreno = tipoFreno;
     }
-    public int getIdFreno() {
-        return idFreno;
+
+    public int getIdTipoFreno() {
+        return idTipoFreno;
     }
-    public void setIdFreno(int idFreno) {
-        this.idFreno = idFreno;
+
+    public void setIdTipoFreno(int idTipoFreno) {
+        this.idTipoFreno = idTipoFreno;
     }
-    public String getFreno() {
-        return freno;
+
+    public String getTipoFreno() {
+        return tipoFreno;
     }
+
     @Override
     public String toString() {
-        return freno;
+        return tipoFreno;
     }
 }

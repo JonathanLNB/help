@@ -2,39 +2,43 @@ package com.example.tarea1;
 
 public class Cliente {
     private String nombres;
-    private String APaterno;
-    private String AMaterno;
-    private int id;
-    public Cliente(int id, String nombres , String APaterno, String AMaterno) {
-        this.id=id;
+    private String aPaterno;
+    private String aMaterno;
+    private int idCliente;
+
+    public Cliente(int idCliente, String nombres, String aPaterno, String aMaterno) {
+        this.idCliente = idCliente;
         this.nombres = nombres;
-        this.APaterno=APaterno;
-        this.AMaterno=AMaterno;
+        this.aPaterno = aPaterno;
+        this.aMaterno = aMaterno;
     }
-    public int getId() {
-        return id;
+
+    public int getIdCliente() {
+        return idCliente;
     }
-    public void setId(int id) {
-        this.id = id;
+
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
+
     public String getNombres() {
         return nombres;
     }
 
-    public String getAPaterno() {
-        return APaterno;
+    public String getaPaterno() {
+        return aPaterno;
     }
 
-    public void setAPaterno(String APaterno) {
-        this.APaterno = APaterno;
+    public void setaPaterno(String aPaterno) {
+        this.aPaterno = aPaterno;
     }
 
-    public String getAMaterno() {
-        return AMaterno;
+    public String getaMaterno() {
+        return aMaterno;
     }
 
-    public void setAMaterno(String AMaterno) {
-        this.AMaterno = AMaterno;
+    public void setaMaterno(String aMaterno) {
+        this.aMaterno = aMaterno;
     }
 
     @Override

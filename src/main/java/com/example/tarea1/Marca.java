@@ -1,22 +1,28 @@
 package com.example.tarea1;
+
 public class Marca {
-    private String nombre;
-    private int id;
-    public Marca(int id, String nombre ) {
-        this.id=id;
-        this.nombre = nombre;
+    private String marca;
+    private int idMarca;
+
+    public Marca(int idMarca, String marca) {
+        this.idMarca = idMarca;
+        this.marca = marca;
     }
-    public int getId() {
-        return id;
+
+    public int getIdMarca() {
+        return idMarca;
     }
-    public void setId(int id) {
-        this.id = id;
+
+    public void setIdMarca(int idMarca) {
+        this.idMarca = idMarca;
     }
-    public String getNombre() {
-        return nombre;
+
+    public String getMarca() {
+        return marca;
     }
+
     @Override
     public String toString() {
-        return nombre;
+        return marca;
     }
 }

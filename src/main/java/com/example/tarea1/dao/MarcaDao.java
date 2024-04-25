@@ -10,18 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class MarcaDao extends MySQLConnection implements Dao<Marca>{
-    Connection connection=getConnection();
+public class MarcaDao extends MySQLConnection implements Dao<Marca> {
+    Connection connection = getConnection();
 
     @Override
     public Optional<Marca> findById(int id) {
-        Marca marca=null;
-        String sql = "SELECT * FROM marca where idMarca="+id;
+        Marca marca = null;
+        String sql = "SELECT * FROM marca where idMarca=" + id;
 
         try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                marca=new Marca(resultSet.getInt("idMarca"),resultSet.getString("nombreMarca"));
+                marca = new Marca(resultSet.getInt("idMarca"), resultSet.getString("nombreMarca"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,7 +38,7 @@ public class MarcaDao extends MySQLConnection implements Dao<Marca>{
         try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                marcas.add(new Marca(resultSet.getInt("idMarca"),resultSet.getString("nombreMarca")));
+                marcas.add(new Marca(resultSet.getInt("idMarca"), resultSet.getString("nombreMarca")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -51,8 +51,9 @@ public class MarcaDao extends MySQLConnection implements Dao<Marca>{
     public boolean save(Marca record) {
         String sql = "INSERT INTO marca(nombreMarca) values(?)";
 
-        try {PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1,record.getNombre());
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, record.getMarca());
             statement.execute();
             return true;
         } catch (SQLException e) {
@@ -66,9 +67,10 @@ public class MarcaDao extends MySQLConnection implements Dao<Marca>{
     public boolean update(Marca record) {
         String sql = "UPDATE marca SET nombreMarca=? where idMarca=?";
 
-        try {PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1,record.getNombre());
-            statement.setInt(2,record.getId());
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, record.getMarca());
+            statement.setInt(2, record.getIdMarca());
             statement.execute();
             return true;
         } catch (SQLException e) {
@@ -80,11 +82,12 @@ public class MarcaDao extends MySQLConnection implements Dao<Marca>{
 
     @Override
     public boolean delete(int id) {
-        String sql = "DELETE FROM marca where idMarca="+id;
+        String sql = "DELETE FROM marca where idMarca=" + id;
 
-        try {PreparedStatement statement = connection.prepareStatement(sql);
-             statement.execute();
-             return true;
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.execute();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Error al eliminar información...");

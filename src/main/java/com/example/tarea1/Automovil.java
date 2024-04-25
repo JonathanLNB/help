@@ -13,9 +13,9 @@ public class Automovil {
     private TipoFreno tipoFreno;
     private String velocidades;
     private Accesorio accesorios;
-    private String fotografia;
+    private String foto;
 
-    public Automovil(int idAuto, Marca marca, String modelo, String color, double peso, Transmision tipoTrans, String numPuertas, String numPersonas, String motor, TipoFreno tipoFreno, String velocidades, Accesorio accesorios, String fotografia) {
+    public Automovil(int idAuto, Marca marca, String modelo, String color, double peso, Transmision tipoTrans, String numPuertas, String numPersonas, String motor, TipoFreno tipoFreno, String velocidades, Accesorio accesorios, String foto) {
         this.idAuto = idAuto;
         this.marca = marca;
         this.modelo = modelo;
@@ -28,7 +28,7 @@ public class Automovil {
         this.tipoFreno = tipoFreno;
         this.velocidades = velocidades;
         this.accesorios = accesorios;
-        this.fotografia = fotografia;
+        this.foto = foto;
     }
 
     public int getIdAuto() {
@@ -127,12 +127,12 @@ public class Automovil {
         this.accesorios = accesorio;
     }
 
-    public String getFotografia() {
-        return fotografia;
+    public String getFoto() {
+        return foto;
     }
 
-    public void setFotografia(String fotografia) {
-        this.fotografia = fotografia;
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public Transmision getTipoTrans() {

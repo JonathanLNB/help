@@ -3,17 +3,24 @@ package com.example.tarea1;
 import java.util.Date;
 
 public class ServicioAuto {
-    private int idServAuto;
+    private int idServicioAuto;
     private Servicio servicio;
     private Propiedad propiedad;
     private Date fechaServicio;
 
-    public int getIdServAuto() {
-        return idServAuto;
+    public ServicioAuto(int idServicioAuto, Servicio servicio, Propiedad propiedad, Date fechaServicio) {
+        this.idServicioAuto = idServicioAuto;
+        this.servicio = servicio;
+        this.propiedad = propiedad;
+        this.fechaServicio = fechaServicio;
     }
 
-    public void setIdServAuto(int idServAuto) {
-        this.idServAuto = idServAuto;
+    public int getIdServicioAuto() {
+        return idServicioAuto;
+    }
+
+    public void setIdServicioAuto(int idServicioAuto) {
+        this.idServicioAuto = idServicioAuto;
     }
 
     public Servicio getServicio() {

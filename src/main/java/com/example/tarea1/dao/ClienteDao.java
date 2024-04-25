@@ -9,18 +9,19 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-public class ClienteDao extends MySQLConnection implements Dao<Cliente>{
-    Connection connection=getConnection();
+
+public class ClienteDao extends MySQLConnection implements Dao<Cliente> {
+    Connection connection = getConnection();
 
     @Override
     public Optional<Cliente> findById(int id) {
-        Cliente cliente=null;
-        String sql = "SELECT * FROM cliente where idCliente="+id;
+        Cliente cliente = null;
+        String sql = "SELECT * FROM cliente where idCliente=" + id;
 
         try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                cliente=new Cliente(resultSet.getInt("idCliente"),resultSet.getString("nombres"),resultSet.getString("apellidoPaterno"),resultSet.getString("apellidoMaterno"));
+                cliente = new Cliente(resultSet.getInt("idCliente"), resultSet.getString("nombres"), resultSet.getString("apellidoPaterno"), resultSet.getString("apellidoMaterno"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -37,7 +38,7 @@ public class ClienteDao extends MySQLConnection implements Dao<Cliente>{
         try (PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                clientes.add(new Cliente(resultSet.getInt("idCliente"),resultSet.getString("nombres"),resultSet.getString("apellidoPaterno"),resultSet.getString("apellidoMaterno")));
+                clientes.add(new Cliente(resultSet.getInt("idCliente"), resultSet.getString("nombres"), resultSet.getString("apellidoPaterno"), resultSet.getString("apellidoMaterno")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -48,12 +49,13 @@ public class ClienteDao extends MySQLConnection implements Dao<Cliente>{
 
     @Override
     public boolean save(Cliente record) {
-        String sql = "INSERT INTO cliente(nombres,apellidoPaterno,apellidoMaterno) values(?)";
+        String sql = "INSERT INTO cliente(nombres,apellidoPaterno,apellidoMaterno) values(?, ?, ?)";
 
-        try {PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1,record.getNombres());
-            statement.setString(2,record.getAPaterno());
-            statement.setString(3,record.getAMaterno());
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, record.getNombres());
+            statement.setString(2, record.getaPaterno());
+            statement.setString(3, record.getaPaterno());
             statement.execute();
             return true;
         } catch (SQLException e) {
@@ -65,13 +67,14 @@ public class ClienteDao extends MySQLConnection implements Dao<Cliente>{
 
     @Override
     public boolean update(Cliente record) {
-        String sql = "UPDATE cliente SET nombres=?,apellidoPaterno=?,apellidoMaterno=? where idCliente=?";
+        String sql = "UPDATE cliente SET nombres=?, apellidoPaterno=?, apellidoMaterno=? where idCliente=?";
 
-        try {PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1,record.getNombres());
-            statement.setString(2,record.getAPaterno());
-            statement.setString(3,record.getAMaterno());
-            statement.setInt(4,record.getId());
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, record.getNombres());
+            statement.setString(2, record.getaPaterno());
+            statement.setString(3, record.getaMaterno());
+            statement.setInt(4, record.getIdCliente());
             statement.execute();
             return true;
         } catch (SQLException e) {
@@ -83,9 +86,10 @@ public class ClienteDao extends MySQLConnection implements Dao<Cliente>{
 
     @Override
     public boolean delete(int id) {
-        String sql = "DELETE FROM cliente where idCliente="+id;
+        String sql = "DELETE FROM cliente where idCliente=" + id;
 
-        try {PreparedStatement statement = connection.prepareStatement(sql);
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
             statement.execute();
             return true;
         } catch (SQLException e) {

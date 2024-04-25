@@ -1,24 +1,29 @@
 package com.example.tarea1;
 
 public class Accesorio {
-    private String nombre;
+    private String accesorio;
     private int id;
-    public Accesorio(int id, String nombre ) {
-        this.id=id;
-        this.nombre = nombre;
+
+    public Accesorio(int id, String accesorio) {
+        this.id = id;
+        this.accesorio = accesorio;
     }
+
     public int getId() {
         return id;
     }
+
     public void setId(int id) {
         this.id = id;
     }
+
     public String getNombre() {
-        return nombre;
+        return accesorio;
     }
+
     @Override
     public String toString() {
-        return nombre;
+        return accesorio;
     }
 }
 

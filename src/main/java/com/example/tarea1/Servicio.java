@@ -1,23 +1,28 @@
 package com.example.tarea1;
 
 public class Servicio {
-    private String nombre;
-    private int id;
-    public Servicio(int id, String nombre ) {
-        this.id=id;
-        this.nombre = nombre;
+    private String servicio;
+    private int idServicio;
+
+    public Servicio(int id, String servicio) {
+        this.idServicio = idServicio;
+        this.servicio = servicio;
     }
-    public int getId() {
-        return id;
+
+    public int getIdServicio() {
+        return idServicio;
     }
-    public void setId(int id) {
-        this.id = id;
+
+    public void setIdServicio(int idServicio) {
+        this.idServicio = idServicio;
     }
-    public String getNombre() {
-        return nombre;
+
+    public String getServicio() {
+        return servicio;
     }
+
     @Override
     public String toString() {
-        return nombre;
+        return servicio;
     }
 }

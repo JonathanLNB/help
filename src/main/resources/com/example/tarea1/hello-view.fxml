@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ComboBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.control.TableColumn?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.tarea1.HelloController">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+  </padding>
+  <top>
+    <VBox alignment="CENTER" spacing="10.0">
+      <Label text="Inventario de Automoviles"/>
+    </VBox>
+  </top>
+
+  <center>
+    <TableView fx:id="tableViewAutos">
+      <columns>
+        <TableColumn text="Marca" prefWidth="100" fx:id="columnaMarca">
+          <cellValueFactory>
+            <PropertyValueFactory property="columnaMarca" />
+          </cellValueFactory>
+        </TableColumn>
+        <TableColumn text="Modelo" prefWidth="100" fx:id="columnaModelo">
+          <cellValueFactory>
+            <PropertyValueFactory property="columnaModelo" />
+          </cellValueFactory>
+        </TableColumn>
+        <TableColumn text="Color" prefWidth="100" fx:id="columnaColor">
+          <cellValueFactory>
+            <PropertyValueFactory property="columnaColor" />
+          </cellValueFactory>
+        </TableColumn>
+        <TableColumn text="Peso" prefWidth="100" fx:id="columnaPeso">
+          <cellValueFactory>
+            <PropertyValueFactory property="columnaPeso" />
+          </cellValueFactory>
+        </TableColumn>
+        <TableColumn text="Tipo de Transmisión" prefWidth="150" fx:id="columnaTransmision">
+          <cellValueFactory>
+            <PropertyValueFactory property="columnaTransmision" />
+          </cellValueFactory>
+        </TableColumn>
+      </columns>
+    </TableView>
+  </center>
+</BorderPane>
